@@ -166,9 +166,12 @@ header>div>img {
 }
 
 #alert {
-    border: 1px solid tomato;
+
     padding: 0.7rem 0.5rem;
-    color: tomato;
+    position: absolute;
+    right: -100px;
+    padding: 10px;
+    transition: all 1s ease;
     border-radius: 5px;
     font-weight: bold;
 }
@@ -186,7 +189,33 @@ header>div>img {
     border-radius: 5px;
     outline: none;
     font-size: 20px;
+    width: 50%;
     padding: 10px 20px;
+}
+
+#closeeditHotel {
+    border: 2px solid gray;
+    background-color: transparent;
+    padding: 10px 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    position: absolute;
+    left: 1010px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+#closeeditHotel:hover {
+    background-color: gray;
+    color: white;
+}
+
+.headTag {
+    font-size: 50px;
+    font-weight: bolder;
+    color: darkblue;
+    margin-bottom: 20px;
 }
 
 .hotelsdiv>#hoItem .items>.item>div {
