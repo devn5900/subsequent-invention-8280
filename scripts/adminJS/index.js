@@ -8,7 +8,7 @@ document.getElementById('dash').addEventListener('click', (e) => {
     getDash();
 
 })
-
+getDash();
 async function getDash() {
     let res = await Promise.all([fetch(hotel),
     fetch(blogs)]
@@ -24,6 +24,7 @@ async function getDash() {
                 <h1>Blogs</h1>
                 <h3>${data1.length}</h3>
             </div>`;
+
 }
 
 
@@ -40,12 +41,7 @@ document.getElementById('adhot').addEventListener('click', (e) => {
 
 function newHotel() {
     return `   <div class="add">
-                <div id="alert">
-                    <div>
-                        <span class="altmsg">Success !</span>
-                    </div>
-                </div>
-                <h2>Add New Hotels</h2>
+                <h2 class='headTag'>Add New Hotels</h2>
                 <form id="addHtl" class="addHtl">
                     <input type="text" id="title" placeholder="Hotel Name"><br>
                     <input type="text" id="desc" placeholder="About to Hotels"><br>
@@ -81,8 +77,8 @@ async function fetchHotel() {
 function appenHotel(data) {
     let mapped = mapData(data);
     container.innerHTML = `  <div class="hotelsdiv">
-                                <h2>All Hotels</h2>
-                                <input type="text" id="searchHotel" placeholder="Search...." />
+                                <h2 class='headTag'>All Hotels</h2>
+                                <input type="text" id="searchHotel" placeholder="Search By Hotel, Tag, Location...." />
                                   <div id='hoItem'>  ${mapped.join('')}
                                </div>
                             </div>`;
@@ -95,18 +91,36 @@ function appenHotel(data) {
             }
             return acc;
         }, []);
-        document.getElementById('hoItem').innerHTML = '';
         let mapd = mapData(sear);
-        // console.log(mapd);
-        document.getElementById('hoItem').innerHTML = `${mapd.join('')}`;
+        if (mapd.length) {
+            document.getElementById('hoItem').innerHTML = '';
+            document.getElementById('hoItem').innerHTML = `${mapd.join('')}`;
+        } else {
+            document.getElementById('hoItem').innerHTML = '';
+            document.getElementById('hoItem').innerHTML =
+                `<div class="items"><div class="item">
+                            <div>
+                                <span class='headTag'>Not Found...............</span>
+                                <span></span>
+                            </div>
+                    </div>`;
+        }
         let edB = document.querySelectorAll('.editBlog');
         edB.forEach((el) => {
             el.addEventListener('click', (e) => {
                 console.log(e.target.dataset.id);
                 editHotel(e.target.dataset.id);
             });
+        });
+        let delB = document.querySelectorAll('.deleteBlog');
+        delB.forEach((el) => {
+            el.addEventListener('click', (e) => {
+                if (confirm('Do you want to delete....?')) {
+                    deleteHotel(e.target.dataset.id);
+                }
+            });
         })
-    })
+    });
     let edB = document.querySelectorAll('.editBlog');
     edB.forEach((el) => {
         el.addEventListener('click', (e) => {
@@ -114,7 +128,32 @@ function appenHotel(data) {
             editHotel(e.target.dataset.id);
         });
     })
+    let delB = document.querySelectorAll('.deleteBlog');
+    delB.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            if (confirm('Do you want to delete....?')) {
+                deleteHotel(e.target.dataset.id);
+            }
+        });
+    })
 }
+
+async function deleteHotel(id) {
+    let res = await fetch(`${hotel}/${id}`, {
+        method: 'DELETE',
+    });
+    if (res.ok) {
+        let data = await res.json();
+        alert('Deleted Successfuly !', 'red', 'tomato', '#f1af90');
+        console.log(data);
+        container.innerHTML = '';
+        preloader();
+        fetchHotel();
+    } else {
+        console.log('Deleting Error');
+    }
+}
+
 async function editHotel(id) {
     container.innerHTML = '';
     preloader();
@@ -130,18 +169,27 @@ async function editHotel(id) {
     }
     document.querySelector('#editIndHotel').addEventListener('submit', (e) => {
         e.preventDefault();
-        let editform = document.querySelector('#editIndHotel');
+        let editform = document.querySelectorAll('#editIndHotel input');
+        console.log(editform);
         let obj = {};
-        obj["title"] = editform[0].value;
-        obj["desc"] = editform[1].value;
-        obj["image"] = editform[2].value;
-        obj["price"] = editform[3].value;
-        obj["rating"] = editform[4].value;
-        obj["checkin"] = editform[5].value;
-        obj["checkout"] = editform[6].value;
-        obj["phone"] = editform[7].value;
-        obj["location"] = editform[8].value;
-        console.log(obj);
+        let id;
+        for (let i = 0; i < editform.length; i++) {
+            if (editform[i].value == "" || editform[i].value == null) {
+                editform[i].style.border = '1px solid red';
+                return;
+            } else {
+                if (editform[i].id != 'submit') {
+                    if (editform[i].id == 'id') {
+                        id = editform[i].value;
+                    } else {
+                        obj[editform[i].id] = editform[i].value;
+                    }
+                }
+            }
+        }
+        let des = document.querySelector('#editIndHotel #desc').value;
+        obj['desc'] = des;
+        updateHotel(obj, id);
     })
     document.getElementById('closeeditHotel').addEventListener('click', (e) => {
         e.preventDefault();
@@ -150,22 +198,43 @@ async function editHotel(id) {
         fetchHotel();
     });
 }
+async function updateHotel(obj, id) {
+    let res = await fetch(`${hotel}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    })
+    if (res.ok) {
+        let data = await res.json();
+        console.log(data);
+        alert('Updated Successfuly !', '#467A56', '#467A56', '#95D59D');
+        setTimeout(() => {
+            container.innerHTML = '';
+            preloader();
+            fetchHotel();
+        }, 2000);
+    } else {
+        console.log('Not Updated');
+    }
+}
 function editIndiHotel({ title, desc, image, price, rating, checkin, checkout, phone, id, location }) {
     return `   <div class="add">
-                <h2>Edit Hotel Details</h2>
-                <button id='closeeditHotel'>close</button>
+            <button id='closeeditHotel'>Back</button>
+                <h2 class='headTag'>Edit Hotel Details</h2>
                 <form id="editIndHotel" class="addHtl">
                     <input type="text"   value="${title}" id="title" placeholder="Hotel Name"><br>
                     <textarea id="desc" placeholder="Blog Content" cols="25" rows="5">${desc}</textarea>
                     <br>
-                    <input type="text"   value="" id="image" placeholder="Image"><br>
-                    <input type="time"   value="${checkin}" id="checkin" placeholder="CheckIn"><br>
-                    <input type="time"   value="${checkout}" id="checkout" placeholder="CheckOut"><br>
+                    <input type="text"   value=${image} id="image" placeholder="Image"><br>
+                    <input type="time"   value=${checkin} id="checkin" placeholder="CheckIn"><br>
+                    <input type="time"   value=${checkout} id="checkout" placeholder="CheckOut"><br>
                     <input type="text" value="${phone}" id="phone" placeholder="Phone Number"><br>
                     <input type="text" value="${price}" id="price" placeholder="Price"><br>
                     <input type="text"   value=${location} id="location" placeholder="Location"><br>
                     <input type="hidden"   value=${id} id="id" /><br>
-                    <input type="submit" value="UPDATE HOTEL">
+                    <input type="submit" id="submit" value="UPDATE HOTEL">
                 </form>
             </div>`;
 }
@@ -219,12 +288,7 @@ document.getElementById('wriBlo').addEventListener('click', (e) => {
 })
 function writeBlog() {
     return ` <div class="add">
-                <div id="alert">
-                    <div>
-                        <span class="altmsg">Success !</span>
-                    </div>
-                </div>
-                <h2>Write Blogs</h2>
+                <h2 class='headTag'>Write Blogs</h2>
                 <form id="writeBlog" class="addHtl">
                     <input type="text" id="title" placeholder="Blog Title"><br>
                     <textarea id="desc" placeholder="Blog Content" cols="25" rows="5"></textarea>
@@ -248,7 +312,7 @@ document.getElementById('shoBlo').addEventListener('click', (e) => {
 })
 function showBlogs() {
     return `  <div class="hotelsdiv">
-                <h2>All Blogs</h2>
+                <h2 class='headTag'>All Blogs</h2>
                 <div class="items">
                     <div class="item">
                         <div><img src="../images/reloder.png" alt=""></div>
@@ -280,4 +344,24 @@ function preloader() {
     container.innerHTML = `<div id="preloader">
   <div id="loader"></div>
 </div>`;
+}
+
+function alert(msg, color, border, bg) {
+    document.getElementById('alert').style.right = '150px';
+    document.getElementById('alert').style.backgroundColor = bg;
+    document.getElementById('alert').style.color = color;
+    document.getElementById('alert').style.border = `1px solid ${border}`;
+    setTimeout(() => {
+
+        document.getElementById('alert').style.right = '-100px';
+    }, 1500);
+    setTimeout(() => {
+        document.getElementById('alert').style.backgroundColor = '';
+        document.getElementById('alert').style.color = '';
+        document.getElementById('alert').style.border = '';
+        document.getElementById('alert').innerHTML = '';
+    }, 2000);
+    document.getElementById('alert').innerHTML = `<div>
+                <span class="altmsg" >${msg}</span>
+            </div>`;
 }
