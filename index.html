@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>Home</title>
 
 </head>
@@ -80,7 +81,80 @@
 
         <div id="search">
             <img src="https://static.tacdn.com/img2/brand/home/homemar2022_dt_trans.webp" />
-            <input type="text" placeholder="Where to.........">
+            <input id="whereTo" type="text" placeholder="Where to?">
+        </div>
+    </section>
+    <section id="slider1">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div>
+                        <img src="./images/reloder.png" alt="">
+                        <h1>
+                            Lorem ipsum dolor sit amet.
+                        </h1>
+                        <p><span>*****</span><span>8</span></p>
+                        <h3>from $8,120 per adult</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="bestOfBest">
+        <div>
+            <div>
+                <h1>
+                    Get out there
+                </h1>
+                <p>
+                    Best of the Best tours, attractions & activities you won't miss.
+                </p>
+                <button>See the list</button>
+            </div>
+            <div>
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/f7/1d/4d/caption.jpg?w=1000&h=-1&s=1"/>
+            </div>
+        </div>
+    </section>
+
+    <section id="slider2">
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div>
+                        <img src="./images/reloder.png" alt="">
+                        <h1>
+                            Lorem ipsum dolor sit amet.
+                        </h1>
+                        <p><span>*****</span><span>8</span></p>
+                        <h3>from $8,120 per adult</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
     <footer id="footer">
@@ -141,6 +215,24 @@
 
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
 <script src="./scripts/index.js"></script>
 
 </html>
