@@ -152,3 +152,41 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
+.popular_links>svg{
+    width: 10%;
+}
+.footer{
+    background-color: #FAF1ED;
+    padding-top: 50px;
+}
+.footer_1{
+    padding-left: 50px;
+    padding-right: 50px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.footer_1>div>a{
+    font-weight: 20;
+    color: rgb(201, 32, 32);
+    background-color: transparent;
+    display: block
+}
+.footer_2{
+    display: inline;
+    
+}
+.footer_22{
+    display: grid;
+    grid-template-columns: repeat(3,250px);
+}
+.footer_22 a{
+    background-color: transparent;
+    text-decoration: none;
+    color: grey;
+}
+.footer_21{
+    display: flex;
+}
+.footer_21 p {
+    padding-top: 10px;
+}
