@@ -1,0 +1,38 @@
+
+#types{
+    width:90%;
+    height:auto;
+    margin:auto;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#types>div{
+    border: 1px solid black;
+    width:15%;
+    height:50px;
+    font-family: Muli,sans-serif!important;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#search{
+    margin-top: 30px;
+}
+
+#search>img{
+    display: block;
+    margin:auto;
+}
+
+#whereTo{
+    margin-top: -60px;
+}
+
+
+
+
+
+
