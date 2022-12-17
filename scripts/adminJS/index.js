@@ -1,17 +1,17 @@
 let hotel = 'https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAround';
 let blogs = 'https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAroundBlogs';
 ///////////////////////////////////////////////////////////////////////////////////
-// let verify = JSON.parse(localStorage.getItem('adminDetails')) || {};
-// if (verify.stat == false) {
-//     window.location.href = './login.html';
-// } else {
-//     document.getElementById('adNM').innerText = verify.name.toUpperCase();
-// }
-// document.getElementById('adNM').addEventListener('click', () => {
-//     verify.stat = false;
-//     localStorage.setItem('adminDetails', JSON.stringify(verify));
-//     window.location.href = './dashboard.html';
-// })
+let verify = JSON.parse(localStorage.getItem('adminDetails')) || {};
+if (verify.stat == false) {
+    window.location.href = './login.html';
+} else {
+    document.getElementById('adNM').innerText = verify.name.toUpperCase();
+}
+document.getElementById('adNM').addEventListener('click', () => {
+    verify.stat = false;
+    localStorage.setItem('adminDetails', JSON.stringify(verify));
+    window.location.href = './dashboard.html';
+})
 ////////////////////////////////////////////////////////////////////////////////////
 let container = document.getElementById('adminFunc')
 document.getElementById('dash').addEventListener('click', (e) => {
@@ -110,6 +110,7 @@ async function fetchHotel() {
         if (res.ok) {
             let data = await res.json();
             appenHotel(data);
+            console.log(data);
         } else {
             console.log('Error');
         }
@@ -285,10 +286,11 @@ function mapData(data) {
     let mapped = data.map((el) => {
         return showHotel(el);
     });
-
+    // console.log(mapped);
     return mapped;
 }
 function showHotel({ title, desc, image, price, rating, checkin, checkout, phone, id, location }) {
+    console.log();
     return `<div class="items"><div class="item">
                         <div><img src=${image} alt=""></div>
                         <div>
@@ -326,9 +328,50 @@ document.getElementById('wriBlo').addEventListener('click', (e) => {
     setTimeout(() => {
         container.innerHTML = '';
         container.innerHTML = writeBlog();
-    }, 1000);
+        document.querySelector('#writeBlog').addEventListener('submit', (e) => {
+            e.preventDefault();
+            let addHtl = document.querySelectorAll('#writeBlog input');
+            let obj = {};
+            for (let i = 0; i < addHtl.length - 1; i++) {
+                obj[addHtl[i].id] = addHtl[i].value;
+            }
+            obj['desc'] = document.getElementById('desc').value;
+            obj['createdAt'] = new Date().toLocaleTimeString();
+            obj['like'] = Number((Math.random() * 888 + 1).toFixed(0));
+            // console.log(obj);
+            postBlogData(obj);
+            //             {
+            // "id": "1",
+            // "desc": "Neil Island is one of India’s Andaman Islands, in the Bay of Bengal. Bharatpur Beach has coral reefs teeming with tropical fish. Laxmanpur Beach is known for its sunset views. Howrah Bridge is a natural rock formation accessible at low tide. Near the island’s wharf is Neil Kendra village, with a curving, sandy bay dotted with boats. Off the southeast coast, the tiny Sir Hugh Rose Island is a sanctuary for turtles.",
+            // "image": "https://uploads-ssl.webflow.com/5b56319971ac8c7475a9d877/5c4f5622a29a8f65c7f25f3e_IMG_7728%20Neil%20Island%20(21).jpg",
+            // "location": "Andaman & Nicobar"
+            // "title": "NEIL ISLAND",
+            // "writer": "admin",
+            // "like": 829,
+            // "createdAt": "9:26:19 PM",
+            // }
+        });
+    }, 500);
 
 })
+async function postBlogData(obj) {
+    let res = await fetch(blogs, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    })
+    if (res.ok) {
+        let data = await res.json();
+        console.log(data);
+        alert('Blog Posted !', '#467A56', '#467A56', '#95D59D');
+        document.querySelector('#writeBlog').reset();
+
+    } else {
+        console.log('Add Hotel Error');
+    }
+}
 function writeBlog() {
     return ` <div class="add">
                 <h2 class='headTag'>Write Blogs</h2>
@@ -337,7 +380,7 @@ function writeBlog() {
                     <textarea id="desc" placeholder="Blog Content" cols="25" rows="5"></textarea>
                     <br>
                     <input type="text" id="image" placeholder="Image"><br>
-                    <input type="text" id="price" placeholder="Writer"><br>
+                    <input type="text" id="writer" placeholder="Writer"><br>
                     <input type="text" id="location" placeholder="Location"><br>
                     <input type="submit" value="POST BLOG">
                 </form>
@@ -366,8 +409,8 @@ async function fetchBlogs() {
     }
 }
 function appenBlogs(data) {
-    let mapped = mapData(data);
-    console.log(mapped);
+    let mapped = mapBlogData(data);
+    // console.log(mapped);
     container.innerHTML = `   <div class="hotelsdiv">
                                   <h2 class='headTag'>All Blogs</h2>
                                 <input type="text" id="searchHotel" placeholder="Search By Places, Tag, Location...." />
@@ -383,7 +426,7 @@ function appenBlogs(data) {
             }
             return acc;
         }, []);
-        let mapd = mapData(sear);
+        let mapd = mapBlogData(sear);
         if (mapd.length) {
             document.getElementById('hoItem').innerHTML = '';
             document.getElementById('hoItem').innerHTML = `${mapd.join('')}`;
@@ -400,7 +443,7 @@ function appenBlogs(data) {
         let edB = document.querySelectorAll('.editBlog');
         edB.forEach((el) => {
             el.addEventListener('click', (e) => {
-                console.log(e.target.dataset.id);
+                // console.log(e.target.dataset.id);
                 editBlog(e.target.dataset.id);
             });
         });
@@ -408,8 +451,8 @@ function appenBlogs(data) {
         delB.forEach((el) => {
             el.addEventListener('click', (e) => {
                 if (confirm('Do you want to delete....?')) {
-                    // deleteHotel(e.target.dataset.id);
-                    console.log(e.target.dataset.id);
+                    deleteBlog(e.target.dataset.id);
+                    // console.log(e.target.dataset.id);
                 }
             });
         })
@@ -425,12 +468,28 @@ function appenBlogs(data) {
     delB.forEach((el) => {
         el.addEventListener('click', (e) => {
             if (confirm('Do you want to delete....?')) {
-                // deleteHotel(e.target.dataset.id);
-                console.log(e.target.dataset.id);
+                deleteBlog(e.target.dataset.id);
+                // console.log(e.target.dataset.id);
             }
         });
     })
 }
+async function deleteBlog(id) {
+    let res = await fetch(`${blogs}/${id}`, {
+        method: 'DELETE',
+    });
+    if (res.ok) {
+        let data = await res.json();
+        alert('Deleted Successfuly !', 'red', 'tomato', '#f1af90');
+        console.log(data);
+        container.innerHTML = '';
+        preloader();
+        fetchBlogs();
+    } else {
+        console.log('Deleting Error');
+    }
+}
+
 async function editBlog(id) {
     container.innerHTML = '';
     preloader();
@@ -548,7 +607,7 @@ function showBlogs({ id, title, location, writer, like, desc, image, createdAt }
                     </div>
                 </div>`;
 }
-function mapData(data) {
+function mapBlogData(data) {
     let mapped = data.map((el) => {
         return showBlogs(el);
     });
