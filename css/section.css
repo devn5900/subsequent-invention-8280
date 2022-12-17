@@ -1,0 +1,47 @@
+#types {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#types>div {
+    border: 1px solid black;
+    width: 15%;
+    height: 50px;
+    font-family: Muli, sans-serif !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+
+#search {
+    padding: 20px;
+    position: relative;
+}
+
+#search>input {
+    position: absolute;
+    top: 50%;
+    padding: 15px 25px;
+    width: 50%;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    border-radius: 45px;
+    right: 20%;
+}
+
+#search>img {
+    display: block;
+    margin: auto;
+    filter: blur(1px);
+}
+
+#whereTo {
+    margin-top: -60px;
+}
