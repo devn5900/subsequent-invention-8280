@@ -20,7 +20,7 @@ function CitySearch(data) {
     localStorage.setItem("city", value);
 
     let new_data = data.filter((ele) => {
-        return ele.location === value;
+        return ele.location.toLowerCase().includes(value.toLowerCase());
     })
     display(new_data, value)
 }
