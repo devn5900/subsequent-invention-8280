@@ -38,22 +38,8 @@ function display(data, value) {
     } else {
         mainsection.innerHTML = `<div class="hotels"> No Item Found </div>`
     }
-
-    let pla = document.querySelectorAll('.places');
-    pla.forEach((el) => {
-        el.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log(e.target.dataset.id);
-            fet(e.target.dataset.id);
-        });
-    });
 }
-async function fet(id) {
 
-    let res = await fetch(`${hotelUrl}/${id}`);
-    let data = await res.json();
-    console.log(data);
-}
 function preloader() {
     mainsection.innerHTML = `<div id="preloader">
   <div id="loader"></div>

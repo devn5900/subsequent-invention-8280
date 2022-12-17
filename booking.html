@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="hotel-header">
+
+        <div id="hotel-header-left">
+            <img src="https://i.postimg.cc/cC7cGnCk/Roam-Around-logo.png" alt="Rome-Around">
+            <div id="search">
+                <input type="text" id="city" placeholder="Search.....">
+                <button id="city-search"> Search</button>
+            </div>
+        </div>
+
+        <div id="hotel-header-right">
+            <div class="hvr-float">
+                <img src="https://th.bing.com/th/id/OIP.xJHU5ymDz9RTGwwmZOCYGAHaHa?w=191&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    alt="">
+                <a href="#">Review</a>
+            </div>
+            <div class="hvr-float">
+                <img src="https://th.bing.com/th/id/OIP.IJ3y7ec3b_RBwkDT3qmbswHaG4?w=208&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    alt="">
+                <a href="#">Trips</a>
+            </div>
+            <div class="hvr-float">
+                <img src="https://th.bing.com/th/id/OIP.L15u7GCz05yErR1F6PIMUgHaHa?w=213&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    alt="">
+                <a href="#">Alerts</a>
+            </div>
+            <div class="hvr-float">
+                <img src="https://th.bing.com/th/id/OIP.C2lsnl3dcMLG28PO3_nJIgHaIA?w=196&h=211&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    alt="">
+                <a href="#">Basket</a>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border-width: 1px; margin-top: 10px;">
+    <div id="nav">
+        <a href="#" class="hvr-underline-from-center">All Things</a>
+        <a href="hotel.html" class="hvr-underline-from-center">Hotels</a>
+        <a href="places.html" class="hvr-underline-from-center">Places</a>
+        <a href="#" class="hvr-underline-from-center">Restaurants</a>
+        <a href="#" class="hvr-underline-from-center"> Flights</a>
+        <a href="#" class="hvr-underline-from-center">Holiday Homes</a>
+        <a href="#" class="hvr-underline-from-center">Travel Stories</a>
+        <a href="#" class="hvr-underline-from-center">Cruises</a>
+        <a href="#">...</a>
+    </div>
+    <hr style="border-width: 1px; margin-bottom: 10px;">
+
+    <div class="heading">
+
+    </div>
+
+    <div class="hotel-book">
+        <div class="form">
+            <div class="price">
+                            
+            </div>
+                <label for="">Name </label>
+                <input type="text" placeholder="Enter Your Name" id="name">
+                <hr>
+                <div class="register">
+                    <div class="dates">
+                        <div>
+                            <p>Check-In</p>
+                            <input type="time" id="checkin-date">
+                        </div>
+                        <div>
+                            <p>Check-Out</p>
+                            <input type="time" id="checkout-date">
+                        </div>
+                    </div>
+                    <div class="customer-info">
+                        <div class="room">
+                            <div>
+                                <img src="https://th.bing.com/th?q=Simple+Bed+Drawing&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247"
+                                    alt="">
+                                <p> Rooms </p>
+                            </div>
+                            <div>
+                                <button id="room-sub"> - </button>
+                                <span id="room"> 1 </span>
+                                <button id="room-add"> + </button>
+                            </div>
+                        </div>
+                        <div class="adult">
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.VX_LfQqGX0iIWC-Qo5pfywHaJB?w=151&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p> Adults </p>
+                            </div>
+                            <div>
+                                <button id="adult-sub"> - </button>
+                                <span id="adult"> 1 </span>
+                                <button id="adult-add"> + </button>
+                            </div>
+                        </div>
+                        <div class="children">
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.-lQHtOM5AYnKvxuDjPZbqAAAAA?w=198&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p> Childrens </p>
+                            </div>
+                            <div>
+                                <button id="child-sub"> - </button>
+                                <span id="child"> 0 </span>
+                                <button id="child-add"> + </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <button class="book"> Book</button>
+        </div>
+
+        <div class="hotel-image">
+
+        </div>
+    </div>
+
+    <div>
+        <div class="about">
+            <h1>About</h1>
+            <hr>
+            <div>
+                <div class="desc">
+                    
+                </div>
+                <div class="about-hotel">
+                    <div>
+                        <h1> Property amenities </h1>
+                        <div class="amenities">
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.PbKgbYrc_Oz6QRe9HEEwVgHaHa?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Free Parking</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.vsJFYUD2_RdQHW46N1dHwQHaGG?w=229&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Free High Speed
+                                    <br> Internet (WiFi)</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.W4VnMguVvFsUmLUVsVd5cAHaFm?w=209&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Pool</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.mTb1HSh0V0D2y2yO4SundgHaKe?w=136&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Fitness Centre with 
+                                    <br> Gym / Workout Room</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.Ccro2SXK225pBu6D75BSqwHaHv?w=171&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Free breakfast</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.dEURNdUkXapz3SuDvHoOrAHaFx?w=213&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Entertainment staff</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.KJ39UmAVCM8auZI_TNc7VwHaFt?w=257&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Kids stay free</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.KJ39UmAVCM8auZI_TNc7VwHaFt?w=257&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Babysitting</p>
+                            </div>
+                        </div>
+                        <a href="#">Show More</a>
+                    </div>
+                    <div>
+                        <h1> Room features </h1>
+                        <div class="room-features">
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.t49WrxSJ4BW1f3PmJ3xMFQAAAA?w=127&h=156&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Air conditioning</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.BYGK3CaNlUNwWJhzH4uJpgAAAA?w=209&h=159&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Desk</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.QQQ-_rVFRSrj3iuSRPFMWgHaHa?pid=ImgDet&rs=1"
+                                    alt="">
+                                <p>Housekeeping</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.BYGK3CaNlUNwWJhzH4uJpgAAAA?w=209&h=159&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Interconnected rooms available</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.Qn24o3Lg-nR60k1P27y4vAHaH4?w=161&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Coffee / tea maker</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.HWi_KOshkliLDmQi1aMAMAHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Kitchenette</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.RSIuzk0mNDl_uIN6YVLsfQHaH0?w=198&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Flatscreen TV</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.nMxjznTYkFb8KXIyMR6xNQHaHa?w=214&h=214&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Bath / shower</p>
+                            </div>
+                        </div>
+                        <a href="#">Show More</a>
+                    </div>
+                    <div>
+                        <h1> Room types </h1>
+                        <div class="room-types">
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.fu6KCgh4ZY5nuC4rWx_sfQHaHa?w=150&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Pool view</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.BYGK3CaNlUNwWJhzH4uJpgAAAA?w=209&h=159&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Bridal suite</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.aApjweXmSW8-s4c0nTsdKwHaHa?w=201&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Non-smoking rooms</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.BYGK3CaNlUNwWJhzH4uJpgAAAA?w=209&h=159&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Suites</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.BYGK3CaNlUNwWJhzH4uJpgAAAA?w=209&h=159&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Family rooms</p>
+                            </div>
+                            <div>
+                                <img src="https://th.bing.com/th/id/OIP.BYGK3CaNlUNwWJhzH4uJpgAAAA?w=209&h=159&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                                <p>Smoking rooms available</p>
+                            </div>
+                        </div>
+                        <a href="#">Show More</a>
+                    </div>
+                    <div>
+                        <h1>Good to know</h1>
+                        <div class="good-to-know">
+                            <div>
+                                <p>HOTEL CLASS</p> <br>
+                                <img src="https://th.bing.com/th/id/OIP.QpRG5HMDuyWbKZf3FxWjzQHaBX?w=318&h=64&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                    alt="">
+                            </div>
+                            <div>
+                                <p><b>Language Spoken</b></p> <br>
+                                <p>English, Hindi</p>
+                            </div>
+                            <div>
+                                <p>Hotel Style</p> <br>
+                                <p>Luxury</p> <br>
+                                <p>Great View</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="scripts/booking.js"></script>
