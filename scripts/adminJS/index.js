@@ -1,15 +1,27 @@
 let hotel = 'https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAround';
 let blogs = 'https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAroundBlogs';
+///////////////////////////////////////////////////////////////////////////////////
+// let verify = JSON.parse(localStorage.getItem('adminDetails')) || {};
+// if (verify.stat == false) {
+//     window.location.href = './login.html';
+// } else {
+//     document.getElementById('adNM').innerText = verify.name.toUpperCase();
+// }
+// document.getElementById('adNM').addEventListener('click', () => {
+//     verify.stat = false;
+//     localStorage.setItem('adminDetails', JSON.stringify(verify));
+//     window.location.href = './dashboard.html';
+// })
 ////////////////////////////////////////////////////////////////////////////////////
 let container = document.getElementById('adminFunc')
 document.getElementById('dash').addEventListener('click', (e) => {
     e.preventDefault();
-    preloader();
     getDash();
 
 })
 getDash();
 async function getDash() {
+    preloader();
     let res = await Promise.all([fetch(hotel),
     fetch(blogs)]
     );
@@ -35,16 +47,47 @@ document.getElementById('adhot').addEventListener('click', (e) => {
     setTimeout(() => {
         container.innerHTML = '';
         container.innerHTML = newHotel();
+        document.querySelector('#addHtl').addEventListener('submit', (e) => {
+            e.preventDefault();
+            let addHtl = document.querySelectorAll('#addHtl input');
+            let obj = {};
+            for (let i = 0; i < addHtl.length - 1; i++) {
+                obj[addHtl[i].id] = addHtl[i].value;
+            }
+            obj['desc'] = document.getElementById('desc').value;
+            obj['checkin'] = new Date().toLocaleTimeString();
+            obj['checkout'] = new Date().toLocaleTimeString();
+            obj['rating'] = (Math.random() * 8 + 1).toFixed(0);
+            console.log(obj);
+            postData(obj);
+        });
     }, 1000);
 
-})
+});
+async function postData(obj) {
+    let res = await fetch(hotel, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    })
+    if (res.ok) {
+        let data = await res.json();
+        console.log(data);
+        alert('Hotel Added !', '#467A56', '#467A56', '#95D59D');
+        document.querySelector('#addHtl').reset();
 
+    } else {
+        console.log('Add Hotel Error');
+    }
+}
 function newHotel() {
     return `   <div class="add">
                 <h2 class='headTag'>Add New Hotels</h2>
                 <form id="addHtl" class="addHtl">
                     <input type="text" id="title" placeholder="Hotel Name"><br>
-                    <input type="text" id="desc" placeholder="About to Hotels"><br>
+                    <textarea id="desc" placeholder="About to Hotels" cols="25" rows="5"></textarea>
                     <input type="text" id="image" placeholder="Image"><br>
                     <input type="number" id="phone" placeholder="Phone Number"><br>
                     <input type="number" id="price" placeholder="Price"><br>
@@ -304,48 +347,221 @@ function writeBlog() {
 /////////////////////////////////////////////////////////////////////////////////
 document.getElementById('shoBlo').addEventListener('click', (e) => {
     e.preventDefault();
+    container.innerHTML = '';
     preloader();
-    setTimeout(() => {
+    fetchBlogs();
+});
+async function fetchBlogs() {
+    try {
+        let res = await fetch(blogs);
+        if (res.ok) {
+            let data = await res.json();
+            console.log(data);
+            appenBlogs(data);
+        } else {
+            console.log('Error');
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+function appenBlogs(data) {
+    let mapped = mapData(data);
+    console.log(mapped);
+    container.innerHTML = `   <div class="hotelsdiv">
+                                  <h2 class='headTag'>All Blogs</h2>
+                                <input type="text" id="searchHotel" placeholder="Search By Places, Tag, Location...." />
+                                  <div id='hoItem'>  ${mapped.join('')}
+                               </div>
+                            </div>`;
+    document.getElementById('searchHotel').addEventListener('input', (e) => {
+        e.preventDefault();
+        let searHotl = document.getElementById('searchHotel').value;
+        let sear = data.reduce((acc, el) => {
+            if (el.writer.toLowerCase().includes(searHotl.toLowerCase()) || el.location.toLowerCase().includes(searHotl.toLowerCase()) || el.title.toLowerCase().includes(searHotl.toLowerCase()) || el.desc.toLowerCase().includes(searHotl.toLowerCase())) {
+                acc.push(el);
+            }
+            return acc;
+        }, []);
+        let mapd = mapData(sear);
+        if (mapd.length) {
+            document.getElementById('hoItem').innerHTML = '';
+            document.getElementById('hoItem').innerHTML = `${mapd.join('')}`;
+        } else {
+            document.getElementById('hoItem').innerHTML = '';
+            document.getElementById('hoItem').innerHTML =
+                `<div class="items"><div class="item">
+                            <div>
+                                <span class='headTag'>Not Found...............</span>
+                                <span></span>
+                            </div>
+                    </div>`;
+        }
+        let edB = document.querySelectorAll('.editBlog');
+        edB.forEach((el) => {
+            el.addEventListener('click', (e) => {
+                console.log(e.target.dataset.id);
+                editBlog(e.target.dataset.id);
+            });
+        });
+        let delB = document.querySelectorAll('.deleteBlog');
+        delB.forEach((el) => {
+            el.addEventListener('click', (e) => {
+                if (confirm('Do you want to delete....?')) {
+                    // deleteHotel(e.target.dataset.id);
+                    console.log(e.target.dataset.id);
+                }
+            });
+        })
+    });
+    let edB = document.querySelectorAll('.editBlog');
+    edB.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            console.log(e.target.dataset.id);
+            editBlog(e.target.dataset.id);
+        });
+    })
+    let delB = document.querySelectorAll('.deleteBlog');
+    delB.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            if (confirm('Do you want to delete....?')) {
+                // deleteHotel(e.target.dataset.id);
+                console.log(e.target.dataset.id);
+            }
+        });
+    })
+}
+async function editBlog(id) {
+    container.innerHTML = '';
+    preloader();
+    // fetchHotel();
+    let res = await fetch(`${blogs}/${id}`);
+    if (res.ok) {
+        let data = await res.json();
+        // console.log(data);
+        let ed = editIndiBlog(data);
+        container.innerHTML = ed;
+    } else {
+        console.log('Error');
+    }
+    document.querySelector('#editIndHotel').addEventListener('submit', (e) => {
+        e.preventDefault();
+        let editform = document.querySelectorAll('#editIndHotel input');
+        console.log(editform);
+        let obj = {};
+        let id;
+        for (let i = 0; i < editform.length; i++) {
+            if (editform[i].value == "" || editform[i].value == null) {
+                editform[i].style.border = '1px solid red';
+                return;
+            } else {
+                if (editform[i].id != 'submit') {
+                    if (editform[i].id == 'id') {
+                        id = editform[i].value;
+                    } else {
+                        obj[editform[i].id] = editform[i].value;
+                    }
+                }
+            }
+        }
+        let des = document.querySelector('#editIndHotel #desc').value;
+        obj['desc'] = des;
+        obj['createdAt'] = new Date().toLocaleTimeString();
+        obj['like'] = Number(((Math.random() * 888) + 1).toFixed(0));
+
+        console.log(obj);
+        //         {
+        // "createdAt": "9:26:19 PM",
+        // "title": "NEIL ISLAND",
+        // "image": "https://uploads-ssl.webflow.com/5b56319971ac8c7475a9d877/5c4f5622a29a8f65c7f25f3e_IMG_7728%20Neil%20Island%20(21).jpg",
+        // "desc": "Neil Island is one of India’s Andaman Islands, in the Bay of Bengal. Bharatpur Beach has coral reefs teeming with tropical fish. Laxmanpur Beach is known for its sunset views. Howrah Bridge is a natural rock formation accessible at low tide. Near the island’s wharf is Neil Kendra village, with a curving, sandy bay dotted with boats. Off the southeast coast, the tiny Sir Hugh Rose Island is a sanctuary for turtles.",
+        // "writer": "admin",
+        // "like": 829,
+        // "id": "1",
+        // "location": "Andaman & Nicobar"
+        // }
+        updateBlog(obj, id);
+    })
+    document.getElementById('closeeditHotel').addEventListener('click', (e) => {
+        e.preventDefault();
         container.innerHTML = '';
-        container.innerHTML = showBlogs();
-    }, 1000);
-})
-function showBlogs() {
-    return `  <div class="hotelsdiv">
-                <h2 class='headTag'>All Blogs</h2>
-                <div class="items">
-                    <div class="item">
-                        <div><img src="../images/reloder.png" alt=""></div>
-                        <div>
-                            <div>
-                                <span>title</span>
-                                (<span>Andaman & Nikobar</span>)
-                            </div>
-                            <div>
-                                <span>admin</span>
-                                <span>9:26:19 PM</span>
-                            </div>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore dignissimos nostrum
-                                debitis ipsam ullam excepturi perspiciatis. Soluta numquam a, neque aut laboriosam,
-                                debitis aliquid molestias ipsam natus optio deleniti similique suscipit, officia ratione
-                                saepe iusto.</p>
-                        </div>
-                        <div class="blogbtn">
-                            <button data-id="" id="editBlog">Edit</button><button data-id=""
-                                id="deleteBlog">Delete</button>
-                        </div>
-                    </div>
-                </div>
+        preloader();
+        fetchBlogs();
+    });
+}
+async function updateBlog(obj, id) {
+    let res = await fetch(`${blogs}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    })
+    if (res.ok) {
+        let data = await res.json();
+        console.log(data);
+        alert('Updated Successfuly !', '#467A56', '#467A56', '#95D59D');
+        setTimeout(() => {
+            container.innerHTML = '';
+            preloader();
+            fetchBlogs();
+        }, 2000);
+    } else {
+        console.log('Not Updated');
+    }
+}
+function editIndiBlog({ id, title, location, writer, like, desc, image, createdAt }) {
+    return `   <div class="add">
+            <button id='closeeditHotel'>Back</button>
+                <h2 class='headTag'>Edit Blogs</h2>
+                <form id="editIndHotel" class="addHtl">
+                    <input type="text"   value="${title}" id="title" placeholder="Hotel Name"><br>
+                    <textarea id="desc" placeholder="Blog Content" cols="25" rows="5">${desc}</textarea>
+                    <br>
+                    <input type="text"   value=${image} id="image" placeholder="Image"><br>
+                    <input type="text" value="${writer}" id="writer" placeholder="Writer"><br>
+                    <input type="text"   value=${location} id="location" placeholder="Location"><br>
+                    <input type="hidden"   value=${id} id="id" /><br>
+                    <input type="submit" id="submit" value="UPDATE HOTEL">
+                </form>
             </div>`;
 }
+function showBlogs({ id, title, location, writer, like, desc, image, createdAt }) {
+    return ` <div class="items">
+                    <div class="item">
+                        <div><img src=${image} alt=""></div>
+                        <div>
+                            <div>
+                                <span>${title}</span>
+                                (<span>${location}</span>)
+                            </div>
+                            <div>
+                                <span>${writer}</span>
+                                <span>${createdAt}</span>
+                            </div>
+                            <p>${desc.substring(0, 150)}</p>
+                        </div>
+                        <div class="blogbtn">
+                            <button data-id=${id} class="editBlog">Edit</button>
+                            <button data-id=${id} class="deleteBlog">Delete</button>
+                        </div>
+                    </div>
+                </div>`;
+}
+function mapData(data) {
+    let mapped = data.map((el) => {
+        return showBlogs(el);
+    });
 
-
+    return mapped;
+}
+////////////////////////////////////////////////////////////////////////////////////
 function preloader() {
     container.innerHTML = `<div id="preloader">
   <div id="loader"></div>
 </div>`;
 }
-
+///////////////////////////////////////////////////////////////////////////////////////
 function alert(msg, color, border, bg) {
     document.getElementById('alert').style.right = '150px';
     document.getElementById('alert').style.backgroundColor = bg;
