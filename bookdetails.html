@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Places</title>
-    <link rel="stylesheet" href="css/places.css">
+    <title>Details</title>
+    <link rel="stylesheet" href="css/bookdetails.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+
     <hr style="border-width: 1px; margin-top: 10px;">
     <div id="nav">
         <a href="#" class="hvr-underline-from-center">All Things</a>
@@ -60,12 +61,72 @@
         <a href="#">...</a>
     </div>
     <hr style="border-width: 1px; margin-bottom: 10px;">
-    <div class="city-container">
-        <div class="city-content">
 
+    <div class="booking-data">
+
+    </div>
+
+    <div class="book-method">
+        <div class="methods">
+            <div>
+                <img src="" alt="">
+                <h3 id="card">Credit Card</h3>
+            </div>
+            <div>
+                <img src="" alt="">
+                <h3 id="card">Debit Card</h3>
+            </div>
+            <div>
+                <img src="" alt="">
+                <h3 id="upi">UPI</h3>
+            </div>
         </div>
+        <div class="method-details">
+            <div class="details-form">
+                <label for="">Card Number</label>
+                <input type="Number" id="cardnumber" placeholder="Enter Card Number"> <br>
+                <hr>
+                <label for="">Month</label>
+                <select id="month">
+                    <option value="jan">January</option>
+                    <option value="">February</option>
+                    <option value="">March</option>
+                    <option value="">April</option>
+                    <option value="">May</option>
+                    <option value="">June</option>
+                    <option value="">July</option>
+                    <option value="">August</option>
+                    <option value="">September</option>
+                    <option value="">October</option>
+                    <option value="">November</option>
+                    <option value="">December</option>
+                </select>
+                <label for="">Year</label>
+                <select id="year">
+                    <option value="jan">2023</option>
+                    <option value="">2024</option>
+                    <option value="">2025</option>
+                    <option value="">2026</option>
+                    <option value="">2027</option>
+                    <option value="">2028</option>
+                </select> <br>
+                <hr>
+                <label for="">CVV</label>
+                <input type="number" id="cvv" placeholder="Enter CVV"> <br>
+                <hr>
+                <button onclick="cardbuttonClick()">Book</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="otp">
+       <div>
+        <input type="text" placeholder="Enter Otp" id="enteredotp">
+        <button onclick="OtpCheck()">Book</button>
+        <hr>
+       </div>
     </div>
 </body>
 
 </html>
-<script src="scripts/places.js"></script>
+<script src="scripts/bookdetails.js"></script>
