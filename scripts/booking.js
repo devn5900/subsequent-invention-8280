@@ -1,9 +1,9 @@
 let id = localStorage.getItem("city-id");
-let bookingData = localStorage.getItem("Booking-Details") || [];
+let bookingData = JSON.parse(localStorage.getItem("Booking-Details")) || [];
 
 let hotelUrl = "https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAround"
 
-async function hotelBook(id,event){
+async function hotelBook(id){
     let res = await fetch(`${hotelUrl}/${id}`,{
         method : "GET",
         headers : {
@@ -159,7 +159,8 @@ function bookHotel(){
     price,
    }
 
-   bookingData.push(bookingDetails);
-
+   bookingData.push(bookingDetails)
+   localStorage.setItem("temp-details",JSON.stringify(bookingDetails))
    localStorage.setItem("Booking-Details",JSON.stringify(bookingData))
+   window.location.href="bookdetails.html"
 }
