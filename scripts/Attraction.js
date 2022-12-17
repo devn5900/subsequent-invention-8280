@@ -100,6 +100,3 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-function bottomline(){
-  document.getElementsByClassName("Bothreviewqa").style.borderBottom="2px solid #383737 "
-}
