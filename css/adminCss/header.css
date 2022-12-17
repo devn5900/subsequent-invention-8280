@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem 0 5rem;
+}
+
+header>div>img {
+    width: 250px;
+}
+
+#adminLogin {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: rgb(227, 227, 229);
+    box-shadow: 1px 2px 7px lightgray;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(32, 31, 31);
+}
+
+#adminLogin input {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+#adminLogin input[type='text']:focus {
+    border: 2px solid rgb(81, 189, 231);
+}
+
+#adminLogin input[type='password']:focus {
+    border: 2px solid rgb(81, 189, 231);
+}
+
+#adminLogin input[type='submit'] {
+    background-color: tomato;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#adminLogin input[type='submit']:hover {
+    color: tomato;
+    border: 2px solid tomato;
+}
+
+.dashboard {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-around;
+
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 15%;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+.left a {
+    text-decoration: none;
+    padding: 8px 25px;
+    background-color: #e4f7fd;
+    margin: 15px;
+    border: 2px solid skyblue;
+    font-size: 20px;
+    color: #34BAD4;
+    text-align: center;
+}
+
+.left a:hover {
+    color: #D45F5F;
+}
+
+.right {
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 84%;
+    background-color: #D8EBEF;
+}
+
+.right>.info {
+    background-color: #D45F5F;
+    border-radius: 5px;
+    border: none;
+    padding: 45px 80px;
+    color: white;
+    text-align: center;
+    margin: 50px 0 0 50px;
+    cursor: pointer;
+}
+
+.add {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    margin-top: 50px;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 1px 2px 7px lightgray;
+}
+
+
+.add input,
+.add textarea {
+    padding: 10px 55px;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.add input[type='text']:focus {
+    border: 2px solid rgb(81, 189, 231);
+}
+
+.add input[type='password']:focus {
+    border: 2px solid rgb(81, 189, 231);
+}
+
+.add input[type='submit'] {
+    background-color: tomato;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add input[type='submit']:hover {
+    background-color: white;
+    color: tomato;
+    border: 2px solid tomato;
+}
+
+#alert {
+
+    padding: 0.7rem 0.5rem;
+    position: absolute;
+    right: -100px;
+    padding: 10px;
+    transition: all 1s ease;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hotelsdiv h2 {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.hotelsdiv>#searchHotel {
+    text-align: center;
+    position: relative;
+    left: 35px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    width: 50%;
+    padding: 10px 20px;
+}
+
+#closeeditHotel {
+    border: 2px solid gray;
+    background-color: transparent;
+    padding: 10px 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    position: absolute;
+    left: 1010px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+#closeeditHotel:hover {
+    background-color: gray;
+    color: white;
+}
+
+.headTag {
+    font-size: 50px;
+    font-weight: bolder;
+    color: darkblue;
+    margin-bottom: 20px;
+}
+
+.hotelsdiv>#hoItem .items>.item>div {
+    overflow: hidden;
+    width: fit-content;
+    margin-right: 10px;
+}
+
+.hotelsdiv>#hoItem>.items>.item>div>img {
+    width: 150px;
+    background-position: center;
+
+}
+
+.items>.item {
+    background-color: white;
+    display: flex;
+    margin: 30px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogbtn>button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.blogbtn>button:first-child {
+    padding: 8px 25px;
+    background-color: #34BAD4;
+    margin-bottom: 8px;
+}
+
+.blogbtn>button:nth-child(2) {
+    padding: 8px 15px;
+    background-color: tomato;
+}
+
+.blogbtn>button:hover {
+    opacity: 0.5;
+}
+
+.item>div:nth-child(2)>div:first-child>span:first-child {
+    font-size: 30px;
+}
+
+
+/* preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
