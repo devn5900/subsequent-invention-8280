@@ -17,11 +17,7 @@ function CitySearch(data) {
     let value = document.querySelector("#city").value
 
     let new_data = data.filter((ele) => {
-<<<<<<< HEAD
         return ele.location.toLowerCase().includes(value.toLowerCase());
-=======
-        return ele.location.toLowerCase() === value.toLowerCase();
->>>>>>> ecf94ffe1860e66d1b412f94856236be4a937563
     })
     display(new_data, value)
 }
@@ -57,12 +53,11 @@ function display(data, value) {
     }
 
     let hotelsData = document.querySelectorAll(".hotels");
-
-    for(let hotel of hotelsData){
+    for (let hotel of hotelsData) {
         hotel.addEventListener("click", event => {
             let id = event.target.dataset.id
             localStorage.removeItem("city-id")
-            localStorage.setItem("city-id",id)
+            localStorage.setItem("city-id", id)
             window.location.href = "booking.html"
         })
     }
