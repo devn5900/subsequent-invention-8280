@@ -367,7 +367,7 @@ font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }.Contribute:hover{
   border-bottom: 2px solid #383737;
 }#contribute{
-  width:25%;
+  width:23%;
   display:flex;
   margin-top:20px;
   justify-content: space-between;
