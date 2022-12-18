@@ -12,7 +12,7 @@
     height: 50px;
     font-family: Muli, sans-serif !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     border-radius: 10px;
 }

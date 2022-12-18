@@ -1,13 +1,22 @@
+
+import { navbar, sectionBody, footer } from './navbar.js';
+
+document.querySelector('#navbar').innerHTML = navbar();
+document.querySelector('#body').innerHTML = sectionBody();
+document.querySelector('#footer').innerHTML = footer();
+
+
+
 let id = localStorage.getItem("city-id");
 let bookingData = JSON.parse(localStorage.getItem("Booking-Details")) || [];
 
 let hotelUrl = "https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAround"
 
-async function hotelBook(id){
-    let res = await fetch(`${hotelUrl}/${id}`,{
-        method : "GET",
-        headers : {
-            "Content-Type" : "application/json"
+async function hotelBook(id) {
+    let res = await fetch(`${hotelUrl}/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
         }
     })
 
@@ -18,12 +27,12 @@ async function hotelBook(id){
 
 hotelBook(id)
 
-function Display(data){
+function Display(data) {
     let headDiv = document.querySelector(".heading");
 
     headDiv.innerHTML = "";
 
-    headDiv.innerHTML =  ` <h1> ${data.title}</h1>
+    headDiv.innerHTML = ` <h1> ${data.title}</h1>
     <div class="info">
         <div>
             <img src="https://th.bing.com/th/id/OIP.wBM_JBD7Kwx5cqCW77J_gQHaHa?w=198&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
@@ -52,15 +61,15 @@ function Display(data){
 
     imagediv.innerHTML = ""
 
-    imagediv.innerHTML = `<img src=${data.image} alt=""></img>`; 
+    imagediv.innerHTML = `<img src=${data.image} alt=""></img>`;
 
     let price = document.querySelector(".price");
 
     price.innerHTML = ` <p> Price : ₹ <span class="hotel-price">${data.price}</span> </p>`
-    
+
     let aboutDesc = document.querySelector(".desc");
 
-    aboutDesc.innerHTML = `<h1>Rating : ${data.rating}</h1> <span><b> ${data.rating >5 ? "Excellent" : "Good"}</b></span>
+    aboutDesc.innerHTML = `<h1>Rating : ${data.rating}</h1> <span><b> ${data.rating > 5 ? "Excellent" : "Good"}</b></span>
     <div>
         <img src="https://th.bing.com/th/id/OIP.QpRG5HMDuyWbKZf3FxWjzQHaBX?w=318&h=64&c=7&r=0&o=5&dpr=1.3&pid=1.7"
             alt="">
@@ -82,65 +91,65 @@ function Display(data){
     <a href="#">Improve the listing</a>`
 }
 
-document.querySelector("#room-sub").addEventListener("click",() => {
-        let value = document.querySelector("#room").innerText;
-        if(value!=1){
-            value--;
-        }
-        else{
-            value=1;
-        }
-
-        document.querySelector("#room").innerText = value
-})
-
-document.querySelector("#room-add").addEventListener("click",() => {
+document.querySelector("#room-sub").addEventListener("click", () => {
     let value = document.querySelector("#room").innerText;
-        value++
+    if (value != 1) {
+        value--;
+    }
+    else {
+        value = 1;
+    }
+
     document.querySelector("#room").innerText = value
 })
 
-document.querySelector("#adult-sub").addEventListener("click",() => {
-        let value = document.querySelector("#adult").innerText;
-        if(value!=1){
-            value--;
-        }
-        else{
-            value=1;
-        }
-
-        document.querySelector("#adult").innerText = value
+document.querySelector("#room-add").addEventListener("click", () => {
+    let value = document.querySelector("#room").innerText;
+    value++
+    document.querySelector("#room").innerText = value
 })
 
-document.querySelector("#adult-add").addEventListener("click",() => {
+document.querySelector("#adult-sub").addEventListener("click", () => {
     let value = document.querySelector("#adult").innerText;
-        value++
+    if (value != 1) {
+        value--;
+    }
+    else {
+        value = 1;
+    }
+
     document.querySelector("#adult").innerText = value
 })
 
-document.querySelector("#child-sub").addEventListener("click",() => {
+document.querySelector("#adult-add").addEventListener("click", () => {
+    let value = document.querySelector("#adult").innerText;
+    value++
+    document.querySelector("#adult").innerText = value
+})
+
+document.querySelector("#child-sub").addEventListener("click", () => {
     let value = document.querySelector("#child").innerText;
-    if(value!=0){
+    if (value != 0) {
         value--;
     }
-    else{
-        value=0;
+    else {
+        value = 0;
     }
 
     document.querySelector("#child").innerText = value
 })
 
-document.querySelector("#child-add").addEventListener("click",() => {
-let value = document.querySelector("#child").innerText;
+document.querySelector("#child-add").addEventListener("click", () => {
+    let value = document.querySelector("#child").innerText;
     value++
-document.querySelector("#child").innerText = value
+    document.querySelector("#child").innerText = value
 })
 
-document.querySelector(".book").addEventListener("click", function(){
+document.querySelector(".book").addEventListener("click", function () {
     bookHotel();
 })
 
-function bookHotel(){
+function bookHotel() {
     let name = document.querySelector("#name").value;
     let checkin = document.querySelector("#checkin-date").value;
     let checkout = document.querySelector("#checkout-date").value;
@@ -148,19 +157,19 @@ function bookHotel(){
     let adult = document.querySelector("#adult").innerText;
     let child = document.querySelector("#child").innerText;
     let price = document.querySelector(".hotel-price").innerText * room;
-    
-   let bookingDetails = {
-    name,
-    checkin,
-    checkout,
-    room,
-    adult,
-    child,
-    price,
-   }
 
-   bookingData.push(bookingDetails)
-   localStorage.setItem("temp-details",JSON.stringify(bookingDetails))
-   localStorage.setItem("Booking-Details",JSON.stringify(bookingData))
-   window.location.href="bookdetails.html"
+    let bookingDetails = {
+        name,
+        checkin,
+        checkout,
+        room,
+        adult,
+        child,
+        price,
+    }
+
+    bookingData.push(bookingDetails)
+    localStorage.setItem("temp-details", JSON.stringify(bookingDetails))
+    localStorage.setItem("Booking-Details", JSON.stringify(bookingData))
+    window.location.href = "bookdetails.html"
 }

@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,188 +8,58 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-#hotel-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+
+.booking-data {
+    background-color: #E0F2F1;
+    padding: 30px;
 }
 
-#hotel-header-left {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-}
-
-#hotel-header-left>img {
-    width: 50%;
-    margin-left: 25%;
-}
-
-#city-search {
-    padding: 10px;
-    background-color: black;
-    color: white;
-    border-radius: 30px;
-    width: 30%;
-    margin-left: 50px;
-    cursor: pointer;
-}
-
-#hotel-header-right {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    align-items: center;
-    width: 90%;
-}
-
-#hotel-header-right>div {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    height: auto;
-    margin: 10px;
-}
-
-#hotel-header-right>div>a {
-    text-decoration: none;
-    color: black;
-    margin: 10px;
-    font-size: 20px;
-}
-
-#hotel-header-right>div>img {
-    width: 25%;
-}
-
-#hotel-header-right>div>a:hover{
-    text-decoration: underline;
-}
-
-#city {
-    padding: 5px;
-    width: 50%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    margin-left: 10px;
-
-}
-
-#search {
-    border: 1px solid teal;
-    border-radius: 30px;
-    padding: 5px;
-    margin-left: -13%;
-}
-
-#nav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-    margin-left: 10%;
-    margin-top: 10px;
-}
-
-#nav>a {
-    text-decoration: none;
-    color: black;
-}
-
-#nav>a:nth-child(9) {
-    font-size: 60px;
-    margin-top: -6%;
-}
-
-#nav>a:hover {
-    color: teal;
-}
-
-.hvr-underline-from-center {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    overflow: hidden;
-}
-
-.hvr-underline-from-center:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 51%;
-    right: 51%;
-    bottom: 0;
-    background: #2098D1;
-    height: 2px;
-    -webkit-transition-property: left, right;
-    transition-property: left, right;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-}
-
-.hvr-underline-from-center:hover:before,
-.hvr-underline-from-center:focus:before,
-.hvr-underline-from-center:active:before {
-    left: 0;
-    right: 0;
-}
-
-.booking-data{
-   background-color: #E0F2F1;
-   padding: 30px;
-}
-
-.booking-data>div{
+.booking-data>div {
     background-color: white;
     padding: 20px;
     width: 40%;
     margin-left: 20%;
 }
 
-.booking-data>div>img{
+.booking-data>div>img {
     width: 5%;
 }
 
-.booking-data>div>h1{
-     display: inline-block;
-     margin: 10px;
+.booking-data>div>h1 {
+    display: inline-block;
+    margin: 10px;
 }
 
-.booking-data>div>p{
+.booking-data>div>p {
     display: inline-block;
     font-size: 20px;
     margin: 10px;
 }
 
-.book-method{
+.book-method {
     background-color: #E0F2F1;
-   padding: 30px;
-   display: flex;
-   justify-content: space-between;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.methods{
+.methods {
     padding: 30px;
     background-color: white;
     margin-left: 20%;
 }
 
-.methods>div{
+.methods>div {
     margin: 10px;
     font-size: 20px;
 }
 
-.methods>div>h3:hover{
+.methods>div>h3:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-.method-details{
+.method-details {
     margin: 10px;
     padding: 20px;
     font-size: 20px;
@@ -197,14 +67,15 @@ body {
     margin-right: 30%;
 }
 
-.details-form>input , .details-form>select{
+.details-form>input,
+.details-form>select {
     border: none;
     outline: none;
     font-size: 20px;
     margin: 10px;
 }
 
-.details-form>button{
+.details-form>button {
     margin: 10px;
     padding: 5px 15px;
     font-size: 20px;
@@ -215,25 +86,25 @@ body {
     cursor: pointer;
 }
 
-.otp{
+.otp {
     background-color: #E0F2F1;
     padding: 30px;
 }
 
-.otp>div{
+.otp>div {
     margin-left: 30%;
     background-color: white;
     padding: 20px;
     width: 30%;
 }
 
-.otp>div>input{
+.otp>div>input {
     font-size: 20px;
     border: none;
     outline: none;
 }
 
-.otp>div>button{
+.otp>div>button {
     border: none;
     background-color: white;
     font-size: 20px;

@@ -1,3 +1,10 @@
+import { navbar, sectionBody, footer } from './navbar.js';
+
+document.querySelector('#navbar').innerHTML = navbar();
+document.querySelector('#body').innerHTML = sectionBody();
+document.querySelector('#footer').innerHTML = footer();
+
+
 let hotelUrl = "https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAroundBlogs";
 let mainsection = document.querySelector(".city-content");
 async function searchData() {

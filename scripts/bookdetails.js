@@ -1,3 +1,10 @@
+
+import { navbar, sectionBody, footer } from './navbar.js';
+
+document.querySelector('#navbar').innerHTML = navbar();
+document.querySelector('#body').innerHTML = sectionBody();
+document.querySelector('#footer').innerHTML = footer();
+
 let bookData = JSON.parse(localStorage.getItem("temp-details"));
 
 showData(bookData)
@@ -70,7 +77,7 @@ document.querySelector("#upi").addEventListener("click", () => {
 function upibuttonClick() {
     let upi = document.querySelector("#upinumber").value;
     if (upi.length === 10) {
-         otp = parseInt(1000 + Math.random() * 9000);
+        otp = parseInt(1000 + Math.random() * 9000);
         alert("Your otp is : " + otp)
     }
     else {
@@ -92,11 +99,11 @@ function cardbuttonClick() {
 }
 
 function OtpCheck() {
-        let enteredotp = document.querySelector("#enteredotp")
-        if (enteredotp.value == otp) {
-            window.location.href = "payment.html"
-        }
-        else {
-            alert("Wrong Otp")
-        }
+    let enteredotp = document.querySelector("#enteredotp")
+    if (enteredotp.value == otp) {
+        window.location.href = "payment.html"
     }
+    else {
+        alert("Wrong Otp")
+    }
+}

@@ -29,11 +29,11 @@ async function getDash() {
     let data1 = await res[1].json();
     container.innerHTML = '';
     container.innerHTML = `<div class="info">
-                <h1>Hotels</h1>
+                <h1><i class="fa-solid fa-square-h"> &nbsp;</i>Hotels</h1>
                 <h3>${data.length}</h3>
             </div>
             <div class="info">
-                <h1>Blogs</h1>
+                <h1><i class="fa-solid fa-b"></i> &nbsp;Blogs</h1>
                 <h3>${data1.length}</h3>
             </div>`;
 
@@ -299,17 +299,17 @@ function showHotel({ title, desc, image, price, rating, checkin, checkout, phone
                                 (<span>${location}</span>)
                             </div>
                             <div>
-                                <span>$${price}</span>
+                                <span><i class="fa-solid fa-dollar-sign"></i>${price}</span>
                                 <span>
-                                    <span>CheckIn</span>
+                                    <span><i class="fa-solid fa-clock"></i></span>
                                     <span>${checkin}</span>
                                 </span>
                                 <span>
-                                    <span>CheckOut</span>
+                                    <span><i class="fa-solid fa-clock"></i></span>
                                     <span>${checkout}</span>
                                 </span>
-                                <span>${phone}</span>
-                                <span>${rating}</span>
+                                <span><i class="fa-solid fa-phone"></i>&nbsp;${phone}</span>
+                                <span><i class="fa-solid fa-star"></i>&nbsp;${rating}</span>
                             </div>
                             <p>${desc.substring(0, 255)}</p>
                         </div>
@@ -592,11 +592,11 @@ function showBlogs({ id, title, location, writer, like, desc, image, createdAt }
                         <div>
                             <div>
                                 <span>${title}</span>
-                                (<span>${location}</span>)
+                                (<span><i class="fa-solid fa-location-pin"></i>&nbsp;${location}</span>)
                             </div>
                             <div>
-                                <span>${writer}</span>
-                                <span>${createdAt}</span>
+                                <span><i class="fa-solid fa-pen-nib"></i>&nbsp;${writer}</span>
+                                <span><i class="fa-solid fa-clock"></i>&nbsp;${createdAt}</span>
                             </div>
                             <p>${desc.substring(0, 150)}</p>
                         </div>

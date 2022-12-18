@@ -1,3 +1,12 @@
+import { navbar, sectionBody, footer } from './navbar.js';
+
+document.querySelector('#navbar').innerHTML = navbar();
+document.querySelector('#body').innerHTML = sectionBody();
+document.querySelector('#footer').innerHTML = footer();
+
+
+
+
 async function searchData() {
     let res = await fetch("https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAround", {
         method: "GET",

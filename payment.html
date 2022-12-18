@@ -6,250 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <!-- <link rel="stylesheet" href="./css/section.css"> -->
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/payment.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-
-        .background {
-            background-color: #E0F7FA;
-            padding: 50px;
-            display: flex;
-        }
-
-        .payment {
-            background-color: white;
-            width: 40%;
-            padding: 20px;
-            height: 400px;
-            margin: auto;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .payment>img {
-            width: 50%;
-        }
-
-        .payment>h1 {
-            margin: 20px;
-        }
-
-        .done>div {
-            background-color: white;
-            padding: 20px;
-            width: 80%;
-            margin-top: 20px;
-            border-radius: 20px;
-            padding-left: 30px;
-        }
-
-        .done>div>img {
-            width: 5%;
-        }
-
-        .done>div>h1 {
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .done>div>p {
-            display: inline-block;
-            font-size: 20px;
-            margin: 10px;
-        }
-
-        #hotel-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        #hotel-header-left {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            align-items: center;
-        }
-
-        #hotel-header-left>img {
-            width: 50%;
-            margin-left: 25%;
-        }
-
-        #city-search {
-            padding: 10px;
-            background-color: black;
-            color: white;
-            border-radius: 30px;
-            width: 30%;
-            margin-left: 50px;
-            cursor: pointer;
-        }
-
-        #hotel-header-right {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            align-items: center;
-            width: 90%;
-        }
-
-        #hotel-header-right>div {
-            display: flex;
-            align-items: center;
-            padding-left: 10px;
-            height: auto;
-            margin: 10px;
-        }
-
-        #hotel-header-right>div>a {
-            text-decoration: none;
-            color: black;
-            margin: 10px;
-            font-size: 20px;
-        }
-
-        #hotel-header-right>div>img {
-            width: 25%;
-        }
-
-        #hotel-header-right>div>a:hover {
-            text-decoration: underline;
-        }
-
-        #city {
-            padding: 5px;
-            width: 50%;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            margin-left: 10px;
-
-        }
-
-        #search {
-            border: 1px solid teal;
-            border-radius: 30px;
-            padding: 5px;
-            margin-left: -13%;
-        }
-
-        #nav {
-            display: flex;
-            justify-content: space-evenly;
-            width: 50%;
-            margin-left: 10%;
-            margin-top: 10px;
-        }
-
-        #nav>a {
-            text-decoration: none;
-            color: black;
-        }
-
-        #nav>a:nth-child(9) {
-            font-size: 60px;
-            margin-top: -6%;
-        }
-
-        #nav>a:hover {
-            color: teal;
-        }
-
-        .hvr-underline-from-center {
-            display: inline-block;
-            vertical-align: middle;
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hvr-underline-from-center:before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            left: 51%;
-            right: 51%;
-            bottom: 0;
-            background: #2098D1;
-            height: 2px;
-            -webkit-transition-property: left, right;
-            transition-property: left, right;
-            -webkit-transition-duration: 0.3s;
-            transition-duration: 0.3s;
-            -webkit-transition-timing-function: ease-out;
-            transition-timing-function: ease-out;
-        }
-
-        .hvr-underline-from-center:hover:before,
-        .hvr-underline-from-center:focus:before,
-        .hvr-underline-from-center:active:before {
-            left: 0;
-            right: 0;
-        }
-    </style>
 </head>
 
 <body>
+    <header id="navbar">
+        <!-- //  navbar section code................ -->
 
-    <div id="hotel-header">
+    </header>
+    <section id="body">
+        <!-- //  body section code................ -->
 
-        <div id="hotel-header-left">
-            <img src="https://i.postimg.cc/cC7cGnCk/Roam-Around-logo.png" alt="Rome-Around">
-            <div id="search">
-                <input type="text" id="city" placeholder="Search.....">
-                <button id="city-search"> Search</button>
-            </div>
-        </div>
 
-        <div id="hotel-header-right">
-            <div>
-                <img src="https://th.bing.com/th/id/OIP.xJHU5ymDz9RTGwwmZOCYGAHaHa?w=191&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-                <a href="#">Review</a>
-            </div>
-            <div>
-                <img src="https://th.bing.com/th/id/OIP.IJ3y7ec3b_RBwkDT3qmbswHaG4?w=208&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-                <a href="#">Trips</a>
-            </div>
-            <div>
-                <img src="https://th.bing.com/th/id/OIP.L15u7GCz05yErR1F6PIMUgHaHa?w=213&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-                <a href="#">Alerts</a>
-            </div>
-            <div>
-                <img src="https://static.vecteezy.com/system/resources/previews/000/574/829/original/vector-login-sign-icon.jpg"
-                    alt="">
-                <a href="#">Login</a>
-            </div>
-        </div>
-    </div>
-
-    <hr style="border-width: 1px; margin-top: 10px;">
-    <div id="nav">
-        <a href="#" class="hvr-underline-from-center">All Things</a>
-        <a href="hotel.html" class="hvr-underline-from-center">Hotels</a>
-        <a href="places.html" class="hvr-underline-from-center">Places</a>
-        <a href="#" class="hvr-underline-from-center">Restaurants</a>
-        <a href="#" class="hvr-underline-from-center"> Flights</a>
-        <a href="#" class="hvr-underline-from-center">Holiday Homes</a>
-        <a href="#" class="hvr-underline-from-center">Travel Stories</a>
-        <a href="#" class="hvr-underline-from-center">Cruises</a>
-        <a href="#">...</a>
-    </div>
+    </section>
     <hr style="border-width: 1px; margin-bottom: 10px;">
 
     <div class="background">
@@ -262,41 +38,11 @@
 
         </div>
     </div>
+    <footer id="footer">
+        <!-- //  footer section code................ -->
+
+    </footer>
 </body>
+<script type="module" src="./scripts/payment.js"></script>
 
 </html>
-<script>
-
-    paymentDone();
-
-    function paymentDone() {
-        setTimeout(() => {
-            let paymentdiv = document.querySelector(".payment");
-            paymentdiv.innerHTML = "";
-            paymentdiv.innerHTML = `<img src = "https://media0.giphy.com/media/TDyxBGZcViZnoye8iN/200w.webp?cid=ecf05e4771m039u4euvjbkq0be1p8wromk2qnmt0lvz5pq6x&rid=200w.webp&ct=g"
-            alt = "" >
-                <h1>Ticket Booked</h1>`;
-
-            let data = JSON.parse(localStorage.getItem("temp-details"))
-            let detailsdiv = document.querySelector(".done")
-            detailsdiv.innerHTML = "";
-            detailsdiv.innerHTML = `
-            <div>
-                <h4>Transction id : ${Math.floor((Math.random() * 1000000000000) + 1)}</h4>
-    <img src="https://th.bing.com/th/id/OIP.yStt_6omWgPJ1kriUtoJFwHaHa?w=204&h=204&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
-    <h1>${data.name}</h1> <br>
-    <span> Check-In : ${data.checkin}  </span> <br> <span>Check-Out : ${data.checkout}</span> <br> <br>
-    <img src="https://th.bing.com/th/id/OIP.d6DUGG3d1gOCWQtuhK09LgHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
-    <p>Room : ${data.room}</p> <br>
-    <img src="https://th.bing.com/th/id/OIP.yStt_6omWgPJ1kriUtoJFwHaHa?w=204&h=204&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
-    <p>Adult : ${data.adult}</p> <br>
-    <img src="https://th.bing.com/th/id/OIP.31-3KHOOcNgWd_fSqUD8DQHaHa?w=213&h=204&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
-    <p>Child : ${data.child}</p> <br>
-    <img src="https://th.bing.com/th/id/OIP.upRS56nxpam3BujmD_DD_wHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
-    <p> Price : ₹ ${data.price} </p> <br>
-  </div>
-            `
-
-        }, 5000)
-    }
-</script>

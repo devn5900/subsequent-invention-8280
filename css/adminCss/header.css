@@ -138,6 +138,8 @@ header>div>img {
     font-size: 15px;
     margin-top: 15px;
     border: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     outline: none;
     border-radius: 5px;
     border: 1px solid lightgray;
@@ -163,6 +165,16 @@ header>div>img {
     background-color: white;
     color: tomato;
     border: 2px solid tomato;
+}
+
+.items div i {
+    color: rgb(99, 96, 96);
+}
+
+.items div span,
+.items div p {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #alert {

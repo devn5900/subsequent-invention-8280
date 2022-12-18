@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Now</title>
     <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="./css/header.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,52 +16,16 @@
 </head>
 
 <body>
-    <div id="hotel-header">
 
-        <div id="hotel-header-left">
-            <img src="https://i.postimg.cc/cC7cGnCk/Roam-Around-logo.png" alt="Rome-Around">
-            <div id="search">
-                <input type="text" id="city" placeholder="Search.....">
-                <button id="city-search"> Search</button>
-            </div>
-        </div>
+    <header id="navbar">
+        <!-- //  navbar section code................ -->
 
-        <div id="hotel-header-right">
-            <div>
-                <img src="https://th.bing.com/th/id/OIP.xJHU5ymDz9RTGwwmZOCYGAHaHa?w=191&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-                <a href="#">Review</a>
-            </div>
-            <div>
-                <img src="https://th.bing.com/th/id/OIP.IJ3y7ec3b_RBwkDT3qmbswHaG4?w=208&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-                <a href="#">Trips</a>
-            </div>
-            <div>
-                <img src="https://th.bing.com/th/id/OIP.L15u7GCz05yErR1F6PIMUgHaHa?w=213&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-                <a href="#">Alerts</a>
-            </div>
-            <div>
-                <img src="https://static.vecteezy.com/system/resources/previews/000/574/829/original/vector-login-sign-icon.jpg"
-                    alt="">
-                <a href="#">Login</a>
-            </div>
-        </div>
-    </div>
+    </header>
+    <section id="body">
+        <!-- //  body section code................ -->
 
-    <hr style="border-width: 1px; margin-top: 10px;">
-    <div id="nav">
-        <a href="#" class="hvr-underline-from-center">All Things</a>
-        <a href="hotel.html" class="hvr-underline-from-center">Hotels</a>
-        <a href="places.html" class="hvr-underline-from-center">Places</a>
-        <a href="#" class="hvr-underline-from-center">Restaurants</a>
-        <a href="#" class="hvr-underline-from-center"> Flights</a>
-        <a href="#" class="hvr-underline-from-center">Holiday Homes</a>
-        <a href="#" class="hvr-underline-from-center">Travel Stories</a>
-        <a href="#" class="hvr-underline-from-center">Cruises</a>
-        <a href="#">...</a>
-    </div>
+
+    </section>
     <hr style="border-width: 1px; margin-bottom: 10px;">
 
     <div class="heading">
@@ -69,61 +35,61 @@
     <div class="hotel-book">
         <div class="form">
             <div class="price">
-                            
+
             </div>
-                <label for="">Name </label>
-                <input type="text" placeholder="Enter Your Name" id="name">
-                <hr>
-                <div class="register">
-                    <div class="dates">
+            <label for="">Name </label>
+            <input type="text" placeholder="Enter Your Name" id="name">
+            <hr>
+            <div class="register">
+                <div class="dates">
+                    <div>
+                        <p>Check-In</p>
+                        <input type="time" id="checkin-date">
+                    </div>
+                    <div>
+                        <p>Check-Out</p>
+                        <input type="time" id="checkout-date">
+                    </div>
+                </div>
+                <div class="customer-info">
+                    <div class="room">
                         <div>
-                            <p>Check-In</p>
-                            <input type="time" id="checkin-date">
+                            <img src="https://th.bing.com/th?q=Simple+Bed+Drawing&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247"
+                                alt="">
+                            <p> Rooms </p>
                         </div>
                         <div>
-                            <p>Check-Out</p>
-                            <input type="time" id="checkout-date">
+                            <button id="room-sub"> - </button>
+                            <span id="room"> 1 </span>
+                            <button id="room-add"> + </button>
                         </div>
                     </div>
-                    <div class="customer-info">
-                        <div class="room">
-                            <div>
-                                <img src="https://th.bing.com/th?q=Simple+Bed+Drawing&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247"
-                                    alt="">
-                                <p> Rooms </p>
-                            </div>
-                            <div>
-                                <button id="room-sub"> - </button>
-                                <span id="room"> 1 </span>
-                                <button id="room-add"> + </button>
-                            </div>
+                    <div class="adult">
+                        <div>
+                            <img src="https://th.bing.com/th/id/OIP.VX_LfQqGX0iIWC-Qo5pfywHaJB?w=151&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                alt="">
+                            <p> Adults </p>
                         </div>
-                        <div class="adult">
-                            <div>
-                                <img src="https://th.bing.com/th/id/OIP.VX_LfQqGX0iIWC-Qo5pfywHaJB?w=151&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                                    alt="">
-                                <p> Adults </p>
-                            </div>
-                            <div>
-                                <button id="adult-sub"> - </button>
-                                <span id="adult"> 1 </span>
-                                <button id="adult-add"> + </button>
-                            </div>
+                        <div>
+                            <button id="adult-sub"> - </button>
+                            <span id="adult"> 1 </span>
+                            <button id="adult-add"> + </button>
                         </div>
-                        <div class="children">
-                            <div>
-                                <img src="https://th.bing.com/th/id/OIP.-lQHtOM5AYnKvxuDjPZbqAAAAA?w=198&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                                    alt="">
-                                <p> Childrens </p>
-                            </div>
-                            <div>
-                                <button id="child-sub"> - </button>
-                                <span id="child"> 0 </span>
-                                <button id="child-add"> + </button>
-                            </div>
+                    </div>
+                    <div class="children">
+                        <div>
+                            <img src="https://th.bing.com/th/id/OIP.-lQHtOM5AYnKvxuDjPZbqAAAAA?w=198&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                alt="">
+                            <p> Childrens </p>
+                        </div>
+                        <div>
+                            <button id="child-sub"> - </button>
+                            <span id="child"> 0 </span>
+                            <button id="child-add"> + </button>
                         </div>
                     </div>
                 </div>
+            </div>
             <button class="book"> Book</button>
         </div>
 
@@ -138,7 +104,7 @@
             <hr>
             <div>
                 <div class="desc">
-                    
+
                 </div>
                 <div class="about-hotel">
                     <div>
@@ -153,7 +119,8 @@
                                 <img src="https://th.bing.com/th/id/OIP.vsJFYUD2_RdQHW46N1dHwQHaGG?w=229&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7"
                                     alt="">
                                 <p>Free High Speed
-                                    <br> Internet (WiFi)</p>
+                                    <br> Internet (WiFi)
+                                </p>
                             </div>
                             <div>
                                 <img src="https://th.bing.com/th/id/OIP.W4VnMguVvFsUmLUVsVd5cAHaFm?w=209&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
@@ -163,8 +130,9 @@
                             <div>
                                 <img src="https://th.bing.com/th/id/OIP.mTb1HSh0V0D2y2yO4SundgHaKe?w=136&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7"
                                     alt="">
-                                <p>Fitness Centre with 
-                                    <br> Gym / Workout Room</p>
+                                <p>Fitness Centre with
+                                    <br> Gym / Workout Room
+                                </p>
                             </div>
                             <div>
                                 <img src="https://th.bing.com/th/id/OIP.Ccro2SXK225pBu6D75BSqwHaHv?w=171&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
@@ -294,8 +262,11 @@
             </div>
         </div>
     </div>
+    <footer id="footer">
+        <!-- //  footer section code................ -->
 
+    </footer>
 </body>
+<script type="module" src="scripts/booking.js"></script>
 
 </html>
-<script src="scripts/booking.js"></script>
