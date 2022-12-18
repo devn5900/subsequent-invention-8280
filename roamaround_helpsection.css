@@ -1,6 +1,6 @@
 
 
-.css-7wstjg {
+/* .css-7wstjg {
     display: flex;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
@@ -24,7 +24,7 @@
 *, ::before, ::after {
     border-color: rgb(224, 224, 224);
     overflow-wrap: break-word;
-}
+} */
 
 .navbar{
     display: flex;
@@ -69,25 +69,28 @@
 }
 /*  */
 
-.searchbutton{
+/* .searchbutton{
     width: 8px;
     text-decoration: none;
     background-color: white;
     border: none;
     
 
-}
+} */
 
-#searchdiv{
-    height: 50px;
-    width: 40%;
-    padding: 5%;
-    border: 1px solid black;
-    border-radius: 30px;
-    padding-left: 6%;
-    padding-right: 6%;
+#search_div{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
     
 
+}
+#inpbox{
+    width: 60%;
+    height: 50px;
+    border-radius: 30px;
+    text-align: center;
 }
 .search_form input{
 
