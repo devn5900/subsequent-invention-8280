@@ -44,7 +44,7 @@
     background-color: white;
     border: none;
 }
-.navbutton_1>div{
+.navbutton_1>div,.navbutton2>div{
     border-bottom: 1px solid black;
 
 }
@@ -151,6 +151,7 @@
 .popular_links{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    gap: 10px;
 }
 .popular_links>svg{
     width: 10%;
@@ -189,4 +190,23 @@
 }
 .footer_21 p {
     padding-top: 10px;
+}
+#rem{
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+}
+#heading_popular{
+    /* background-color: aqua; */
+    text-align: center;
+}
+.popular_links{
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 7%;
+
+}
+#images{
+    display: flex;
+    justify-content: center;
 }
