@@ -1,11 +1,4 @@
 
-import { navbar, sectionBody, footer } from './navbar.js';
-
-document.querySelector('#navbar').innerHTML = navbar();
-document.querySelector('#body').innerHTML = sectionBody();
-document.querySelector('#footer').innerHTML = footer();
-
-
 
 let id = localStorage.getItem("city-id");
 let bookingData = JSON.parse(localStorage.getItem("Booking-Details")) || [];

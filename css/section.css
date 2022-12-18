@@ -19,12 +19,12 @@
 
 
 
-#search {
+#searchh {
     padding: 20px;
     position: relative;
 }
 
-#search>input {
+#searchh>input {
     position: absolute;
     top: 50%;
     padding: 15px 25px;
@@ -36,7 +36,7 @@
     right: 20%;
 }
 
-#search>img {
+#searchh>img {
     display: block;
     margin: auto;
     filter: blur(1px);
@@ -44,4 +44,167 @@
 
 #whereTo {
     margin-top: -60px;
+}
+
+.swiper-slide>div>img {
+    width: 100%;
+    height: auto;
+}
+
+
+#bestOfBest>div {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #FAF1ED;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+#bestOfBest>div>div:nth-child(2)>img {
+    width: 550px;
+    height: 230px;
+}
+
+#bestOfBest>div>div:nth-child(1)>h1 {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#bestOfBest>div>div:nth-child(1)>p {
+    margin-left: 20px;
+    color: #333333;
+    font-size: 18px;
+}
+
+#bestOfBest>div>div:nth-child(1)>button {
+    margin-top: 40px;
+    margin-left: 20px;
+    padding: 15px 20px 15px 20px;
+    border-radius: 25px;
+    font-weight: bolder;
+    background-color: black;
+    color: white;
+    border: 0px;
+    font-size: 15px;
+
+}
+
+#slider1 {
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.swiper-slide>div>img {
+    /* width: 300px;*/
+    height: 300px;
+}
+
+.swiper-slide>div>h1 {
+    padding: 8px 10px 5px 10px;
+    font-size: 18px;
+    text-align: left;
+
+}
+
+.swiper-slide>div>h3 {
+    font-size: 18px;
+    text-align: left;
+    padding: 8px 10px 5px 10px;
+    /* margin-top: -20px; */
+}
+
+.swiper-slide>div {
+    box-shadow: 3px 3px 3px lightgray;
+    /* text-align: center; */
+    /* overflow: hidden; */
+    /* max-height: 550px; */
+}
+
+.swiper-slide>div>p {
+    text-align: left;
+    /* margin-top: -10px; */
+    padding: 8px 10px 5px 10px;
+    font-size: 17px;
+}
+
+#slider2 {
+    width: 90%;
+    margin: auto;
+}
+
+#slider2>h2 {
+    margin-top: 50px;
+}
+
+
+#slider-2>div>img {
+    width: 100px;
+    height: 300px;
+}
+
+#slider3 {
+    /* width: 90%; */
+    margin: auto;
+    padding: 50px 60px;
+    background-color: #faf1ed;
+    margin-top: 50px;
+}
+
+
+.slider3>div {
+    border: 1px solid red;
+}
+
+#slider4 {
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
+
+}
+
+.swiper-slide>div {
+    overflow: hidden;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: white;
+    padding: 5px 10px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    /* display: block; */
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
 }

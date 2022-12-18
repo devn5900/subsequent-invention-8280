@@ -1,10 +1,4 @@
 
-import { navbar, sectionBody, footer } from './navbar.js';
-
-document.querySelector('#navbar').innerHTML = navbar();
-document.querySelector('#body').innerHTML = sectionBody();
-document.querySelector('#footer').innerHTML = footer();
-
 let bookData = JSON.parse(localStorage.getItem("temp-details"));
 
 showData(bookData)

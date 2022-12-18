@@ -1,7 +1,10 @@
 
+let mainsection = document.querySelector(".city-content");
 
 
+searchData();
 async function searchData() {
+    preloader();
     let res = await fetch("https://636a539ec07d8f936d9a5d5e.mockapi.io/awadhStore/roamAround", {
         method: "GET",
         headers: {
@@ -11,11 +14,13 @@ async function searchData() {
     let data = await res.json();
     CitySearch(data)
 }
-searchData();
-
-
+function preloader() {
+    mainsection.innerHTML = `<div id="preloader">
+  <div id="loader"></div>
+</div>`;
+}
 function CitySearch(data) {
-    let value = localStorage.getItem('Search') || "";
+    let value = document.querySelector("#city").value
 
     let new_data = data.filter((ele) => {
         return ele.location.toLowerCase().includes(value.toLowerCase());
@@ -23,7 +28,6 @@ function CitySearch(data) {
     display(new_data, value)
 }
 
-let mainsection = document.querySelector(".city-content");
 
 function display(data, value) {
     mainsection.innerHTML = "";
@@ -45,7 +49,7 @@ function display(data, value) {
 </div>`
         })
         mainsection.innerHTML = ` 
-    <h1>Hotels Matching "${value}"</h1>
+    <h1>All Hotels</h1>
 
     <br>
     ${newData.join(" ")} `
@@ -60,6 +64,7 @@ function display(data, value) {
             localStorage.removeItem("city-id")
             localStorage.setItem("city-id", id)
             window.location.href = "./Attraction.html"
+
         })
     }
 
